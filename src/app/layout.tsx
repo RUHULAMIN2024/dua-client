@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Geist, Geist_Mono } from "next/font/google";
+import Navber from "./components/Navber";
+import Categories from "./components/Categories";
+import Iconbar from "./components/Iconbar";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const interFont = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -23,9 +31,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+    <html data-theme="light" lang="en">
+      <body
+        className={`${interFont} ${geistSans.variable} ${geistMono.variable}`}
+      >
+        <div className="flex h-screen p-6 bg-[#EBEEF2]">
+          <Iconbar />
+          <div className="flex-1">
+            <Navber></Navber>
+
+            <div className="flex gap-8 ml-8 mt-3">
+              <Categories></Categories>
+              {children}
+            </div>
+          </div>
+        </div>
       </body>
     </html>
   );
