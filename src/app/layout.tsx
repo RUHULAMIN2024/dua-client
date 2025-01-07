@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Geist, Geist_Mono } from "next/font/google";
 import Navber from "./components/Navber";
-import Categories from "./components/Categories";
 import Iconbar from "./components/Iconbar";
 import "./globals.css";
 
@@ -39,11 +38,7 @@ export default function RootLayout({
           <Iconbar />
           <div className="flex-1">
             <Navber></Navber>
-
-            <div className="flex gap-8 ml-8 mt-3">
-              <Categories></Categories>
-              {children}
-            </div>
+            {children}
           </div>
         </div>
       </body>

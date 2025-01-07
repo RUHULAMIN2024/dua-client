@@ -1,10 +1,34 @@
-import { getCategories } from "@/api/api";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
 import { ICategories } from "@/interface/interface";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const Categories = async () => {
-  const categories = await getCategories();
+type CategoriesProps = {
+  handleClick: (cat_name_en: string) => void;
+};
+const Categories: React.FC<CategoriesProps> = ({ handleClick }) => {
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  async function fetchData(url: string) {
+    try {
+      const response = await fetch(url);
+      const result = await response.json();
+      setCategories(result.data);
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  }
+  useEffect(() => {
+    fetchData("https://dua-server-ruddy.vercel.app/api/categories");
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div>
@@ -33,9 +57,12 @@ const Categories = async () => {
             />
           </label>
         </div>
-        <div className="overflow-y-auto flex  flex-col  gap-4 max-h-[50vh] ">
+        <div className="overflow-y-auto flex  flex-col  gap-4 max-h-[54vh] ">
           {categories.map((category: ICategories) => (
-            <div key={category.id}>
+            <div
+              onClick={() => handleClick(category.cat_id.toString())}
+              key={category.id}
+            >
               <div className="flex group p-3 h-20 rounded-xl items-center hover:bg-[#EBEEF2] w-[350px] ">
                 <div className="object-cover mr-3 group-hover:bg-white bg-[#EBEEF2] object-center flex justify-center items-center w-14 h-14 rounded-xl">
                   <Image src="/fever.png" alt="icon" width={40} height={40} />
