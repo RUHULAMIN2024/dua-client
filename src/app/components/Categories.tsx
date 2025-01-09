@@ -32,12 +32,12 @@ const Categories: React.FC<CategoriesProps> = ({ handleClick }) => {
 
   return (
     <div>
-      <div className="w-[370px] h-14 justify-center flex items-center text-white text-center rounded-t-xl bg-[#1FA45B]">
+      <div className="md:w-[370px] h-14 justify-center flex items-center text-white text-center rounded-t-xl bg-[#1FA45B]">
         <h2>Categories</h2>
       </div>
       <div className="flex gap-4 py-4 flex-col justify-center items-center bg-white">
         <div className="form-control">
-          <label className="input-bordered input input-success  w-[350px] flex items-center gap-2">
+          <label className="input-bordered input input-success  md:w-[350px] flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
