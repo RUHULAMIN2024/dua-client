@@ -59,7 +59,7 @@ const Home = () => {
         </div>
       </div>
       <div className="flex-1 md:h-[80vh] overflow-y-auto">
-        <div className="w-full rounded-xl md:p-4 bg-white">
+        <div className="w-full rounded-xl p-4 bg-white">
           <h2>
             <span className="text-success">Section: </span> How the Prophet (ﷺ)
             and his Companions made duas
