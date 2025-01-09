@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Iconbar = () => {
   return (
-    <div className="w-24 flex py-5  items-center overflow-y-scroll  flex-col rounded-l-3xl bg-white">
+    <div className="w-24 hidden md:flex py-5  items-center overflow-y-scroll  flex-col rounded-l-3xl bg-white">
       <div>
         <Image width={73} alt="logo" height={73} src="/logo.png" />
       </div>

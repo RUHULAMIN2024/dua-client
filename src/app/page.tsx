@@ -35,10 +35,31 @@ const Home = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="flex gap-8 ml-8 mt-3">
-      <Categories handleClick={handleClick}></Categories>
-      <div className="flex-1 h-[80vh] overflow-y-auto">
-        <div className="w-full rounded-xl p-4 bg-white">
+    <div className="flex-col flex md:flex-row gap-8 md:ml-8 mt-3">
+      <div className=" lg:drawer-open">
+        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content flex flex-col items-center justify-center">
+          {/* Page content here */}
+          <label
+            htmlFor="my-drawer-2"
+            className="btn btn-success drawer-button w-full lg:hidden"
+          >
+            Categories
+          </label>
+        </div>
+        <div className="drawer-side">
+          <label
+            htmlFor="my-drawer-2"
+            aria-label="close sidebar"
+            className="drawer-overlay"
+          ></label>
+
+          {/* Sidebar content here */}
+          <Categories handleClick={handleClick}></Categories>
+        </div>
+      </div>
+      <div className="flex-1 md:h-[80vh] overflow-y-auto">
+        <div className="w-full rounded-xl md:p-4 bg-white">
           <h2>
             <span className="text-success">Section: </span> How the Prophet (ﷺ)
             and his Companions made duas

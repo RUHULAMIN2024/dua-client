@@ -2,12 +2,12 @@ import Image from "next/image";
 
 const Navber = () => {
   return (
-    <div className="navbar  pt-0 ml-3">
+    <div className="navbar  pt-0 md:ml-3">
       <div className="flex-1">
         <a className="btn btn-ghost text-2xl">Dua Page</a>
       </div>
       <div className="flex-none gap-2">
-        <div className="form-control">
+        <div className="hidden md:block form-control">
           <label className="input input-bordered input-success w-80 flex items-center gap-2">
             <input
               type="text"
